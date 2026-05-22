@@ -1,0 +1,9 @@
+node_modules
+dist
+.idea
+.local
+*.tsbuildinfo
+
+.claude/cache
+.claude/settings.local.json
+.CLAUDE.local.md

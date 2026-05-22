@@ -1,0 +1,95 @@
+{
+  "name": "package-template",
+  "version": "0.1.0",
+  "description": "Reusable ESM package template with TypeScript, ESLint, and Prettier.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "imports": {
+    "#*": {
+      "default": "./*"
+    },
+    "#src/*": {
+      "development": "./src/*.ts",
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "#src/*.json": {
+      "development": "./src/*.json",
+      "default": "./dist/*.json"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "ts:check": "tsc --noEmit",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "lint:files": "eslint --fix",
+    "lint:files:check": "eslint",
+    "format": "prettier --write --ignore-unknown .",
+    "format:check": "prettier --check --ignore-unknown .",
+    "format:files": "prettier --write --ignore-unknown",
+    "format:files:check": "prettier --check --ignore-unknown",
+    "check-all": "npm run ts:check && npm run lint:check && npm run format:check",
+    "fix-all": "npm run ts:check && npm run lint && npm run format",
+    "pack:check": "npm pack --dry-run",
+    "prepack": "npm run build",
+    "prepare": "cp tools/githooks/* .git/hooks || true",
+    "lint-staged": "lint-staged",
+    "test": "node --conditions=development --import tsx --test",
+    "test:coverage": "node --conditions=development --import tsx --experimental-test-coverage --test"
+  },
+  "keywords": [
+    "template",
+    "typescript",
+    "esm",
+    "npm-package"
+  ],
+  "author": "Ivan Petropolsky",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "packageManager": "npm@11.11.0",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipetropolsky/package-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ipetropolsky/package-template/issues"
+  },
+  "homepage": "https://github.com/ipetropolsky/package-template#readme",
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "@types/node": "25.9.1",
+    "eslint": "9.39.4",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-import-resolver-typescript": "3.7.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-promise": "7.2.1",
+    "eslint-plugin-simple-import-sort": "13.0.0",
+    "globals": "17.6.0",
+    "lint-staged": "16.4.0",
+    "prettier": "3.8.1",
+    "tsx": "4.22.3",
+    "typescript": "6.0.2",
+    "typescript-eslint": "8.58.0"
+  }
+}
