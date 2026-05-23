@@ -19,7 +19,8 @@ import {
     toolScriptRules,
     typescriptLanguageOptions,
     typescriptRules,
-} from '#root/eslint.rules';
+} from '#tools/eslint/eslint.rules';
+import projectPlugin from '#tools/eslint/project/index';
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
@@ -34,6 +35,7 @@ export default tseslint.config(
     {
         languageOptions,
         plugins: {
+            project: projectPlugin,
             'simple-import-sort': simpleImportSortPlugin,
         },
         settings: {

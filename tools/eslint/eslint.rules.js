@@ -38,6 +38,8 @@ export const typescriptLanguageOptions = {
 };
 
 export const commonRules = {
+    'project/json-import-attribute': 'error',
+    'project/import-without-extension': ['error', { extensions: ['js', 'ts'] }],
     'array-callback-return': 'error',
     complexity: ['off', 11],
     'consistent-return': 'error',
@@ -613,7 +615,7 @@ export const commonRules = {
     'import/no-duplicates': 'error',
     'import/no-namespace': 'off',
     'import/extensions': [
-        'error',
+        'off',
         'always',
         {
             js: 'never',
