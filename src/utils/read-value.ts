@@ -1,7 +1,7 @@
 import { valueSuffixer } from '#src/utils/value-suffixer';
 
 export interface AsyncValueReader {
-    readValue(key: string): Promise<string | null>;
+    readValue(key: string): Promise<null | string>;
 }
 
 // Тестовый модуль для проверки импортов и тестов

@@ -15,9 +15,9 @@ const projectCheckFiles = [
 const bracePattern = (patterns) => `{${patterns.join(',')}}`;
 
 export default {
-    [bracePattern(packageFiles)]: [() => 'npm install'],
-    [bracePattern(projectCheckFiles)]: [() => 'npm run check-all'],
+    '!(*.ts|*.js|*.mjs|*.cjs)': ['npm run format:files --'],
     '*.ts': [() => 'npm run ts:check'],
     '*.{ts,js,mjs,cjs}': ['npm run lint:files --', 'npm run format:files --'],
-    '!(*.ts|*.js|*.mjs|*.cjs)': ['npm run format:files --'],
+    [bracePattern(packageFiles)]: [() => 'npm install'],
+    [bracePattern(projectCheckFiles)]: [() => 'npm run check-all'],
 };
