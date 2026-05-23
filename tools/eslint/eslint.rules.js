@@ -37,7 +37,74 @@ export const typescriptLanguageOptions = {
     },
 };
 
+const projectRules = {
+    'project/import-without-extension': ['error', { extensions: ['js', 'ts'] }],
+    'project/json-import-attribute': 'error',
+};
+
+const perfectionistRules = {
+    'perfectionist/sort-array-includes': 'off',
+    'perfectionist/sort-classes': 'off',
+    'perfectionist/sort-decorators': 'off',
+    'perfectionist/sort-enums': 'off',
+    'perfectionist/sort-exports': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-heritage-clauses': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-imports': [
+        'error',
+        {
+            customGroups: [
+                {
+                    elementNamePattern: '^#(?:src|test|tools)/(?!.*\\.json$).+',
+                    groupName: 'internal-code',
+                    selector: 'tsconfig-path',
+                },
+                {
+                    elementNamePattern: '^#(?:src|test|tools)/.+\\.json$',
+                    groupName: 'internal-json',
+                    selector: 'tsconfig-path',
+                },
+            ],
+            groups: [
+                ['type-builtin', 'value-builtin'],
+                'side-effect',
+                ['type-external', 'value-external'],
+                'internal-code',
+                'internal-json',
+                [
+                    'type-parent',
+                    'type-sibling',
+                    'type-index',
+                    'value-parent',
+                    'value-sibling',
+                    'value-index',
+                ],
+                'unknown',
+            ],
+            order: 'asc',
+            tsconfig: {
+                rootDir: '.',
+            },
+            type: 'natural',
+        },
+    ],
+    'perfectionist/sort-interfaces': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-intersection-types': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-jsx-props': 'off',
+    'perfectionist/sort-maps': 'off',
+    'perfectionist/sort-modules': 'off',
+    'perfectionist/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-object-types': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-objects': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-sets': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-switch-case': 'off',
+    'perfectionist/sort-union-types': ['error', { order: 'asc', type: 'natural' }],
+    'perfectionist/sort-variable-declarations': 'off',
+};
+
 export const commonRules = {
+    ...projectRules,
+    ...perfectionistRules,
     'array-bracket-spacing': ['error', 'never'],
     'array-callback-return': 'error',
     'arrow-body-style': [
@@ -571,8 +638,6 @@ export const commonRules = {
     'prefer-rest-params': 'error',
     'prefer-spread': 'error',
     'prefer-template': 'error',
-    'project/import-without-extension': ['error', { extensions: ['js', 'ts'] }],
-    'project/json-import-attribute': 'error',
     'promise/always-return': 'off',
     'promise/catch-or-return': [
         'error',

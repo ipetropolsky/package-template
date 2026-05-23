@@ -4,8 +4,8 @@ import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
+import perfectionist from 'eslint-plugin-perfectionist';
 import promisePlugin from 'eslint-plugin-promise';
-import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 import tseslint from 'typescript-eslint';
 
 import {
@@ -35,8 +35,8 @@ export default tseslint.config(
     {
         languageOptions,
         plugins: {
+            perfectionist,
             project: projectPlugin,
-            'simple-import-sort': simpleImportSortPlugin,
         },
         settings: {
             'import/external-module-folders': ['node_modules'],
@@ -65,8 +65,8 @@ export default tseslint.config(
         rules: toolScriptRules,
     },
     {
-        files: ['**/*.ts'],
         extends: [tseslint.configs.strictTypeChecked, tseslint.configs.stylisticTypeChecked],
+        files: ['**/*.ts'],
         languageOptions: {
             ...typescriptLanguageOptions,
             parserOptions: {
