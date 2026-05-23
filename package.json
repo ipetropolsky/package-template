@@ -18,8 +18,11 @@
     "./package.json": "./package.json"
   },
   "imports": {
-    "#*": {
-      "default": "./*"
+    "#root/*": {
+      "default": "./*.js"
+    },
+    "#root/*.json": {
+      "default": "./*.json"
     },
     "#src/*": {
       "development": "./src/*.ts",
@@ -29,6 +32,15 @@
     "#src/*.json": {
       "development": "./src/*.json",
       "default": "./dist/*.json"
+    },
+    "#test/*": {
+      "development": "./test/*.ts"
+    },
+    "#test/*.json": {
+      "development": "./test/*.json"
+    },
+    "#tools/*": {
+      "default": "./tools/*.js"
     }
   },
   "scripts": {

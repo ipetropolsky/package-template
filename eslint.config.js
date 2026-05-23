@@ -19,7 +19,7 @@ import {
     toolScriptRules,
     typescriptLanguageOptions,
     typescriptRules,
-} from '#eslint.rules.js';
+} from '#root/eslint.rules';
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 

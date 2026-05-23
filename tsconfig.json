@@ -19,7 +19,8 @@
     "customConditions": ["development"],
     "types": ["node"],
     "paths": {
-      "#src/*": ["./src/*"]
+      "#src/*": ["./src/*"],
+      "#test/*": ["./test/*"]
     },
     "rootDir": ".",
     "outDir": "./dist"

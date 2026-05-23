@@ -14,7 +14,6 @@
 
 - `npm run test`
 - `npm run build`
-- `npm run pack:check`
 - `npm run test:coverage`
 
 ## Notes
