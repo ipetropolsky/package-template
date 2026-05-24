@@ -11,21 +11,21 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/index.js",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
   "imports": {
     "#src/*": {
-      "default": "./dist/*.js",
       "development": "./src/*.ts",
-      "types": "./dist/*.d.ts"
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
     },
     "#src/*.json": {
-      "default": "./dist/*.json",
-      "development": "./src/*.json"
+      "development": "./src/*.json",
+      "default": "./dist/*.json"
     },
     "#test/*": {
       "development": "./test/*.ts"
@@ -56,8 +56,8 @@
     "prepack": "npm run build",
     "prepare": "cp tools/githooks/* .git/hooks || true",
     "lint-staged": "lint-staged",
-    "test": "node --conditions=development --import tsx --test",
-    "test:coverage": "node --conditions=development --import tsx --experimental-test-coverage --test"
+    "test": "node --conditions=development --experimental-test-module-mocks --import tsx --test",
+    "test:coverage": "node --conditions=development --experimental-test-module-mocks --import tsx --experimental-test-coverage --test"
   },
   "keywords": [
     "template",

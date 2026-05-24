@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import json from '@eslint/json';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import { defaultConditionNames } from 'eslint-import-resolver-typescript';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
 import promisePlugin from 'eslint-plugin-promise';
@@ -58,7 +59,9 @@ export default tseslint.config(
                 '@typescript-eslint/parser': ['.js', '.mjs', '.cjs', '.ts'],
             },
             'import/resolver': {
-                typescript: true,
+                typescript: {
+                    conditionNames: ['development', ...defaultConditionNames],
+                },
             },
         },
     },
