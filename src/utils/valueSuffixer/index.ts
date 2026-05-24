@@ -1,4 +1,4 @@
-import valueSuffixerConfig from '#src/utils/value-suffixer-config.json' with { type: 'json' };
+import valueSuffixerConfig from '#src/utils/valueSuffixer/config.json' with { type: 'json' };
 
 export const defaultValueSuffix = valueSuffixerConfig.defaultSuffix;
 

@@ -1,4 +1,4 @@
-import { valueSuffixer } from '#src/utils/value-suffixer';
+import { valueSuffixer } from '#src/utils/valueSuffixer/index';
 
 export interface AsyncValueReader {
     readValue(key: string): Promise<null | string>;

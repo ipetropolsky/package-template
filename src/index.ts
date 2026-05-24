@@ -1,3 +1,3 @@
-export type { AsyncValueReader } from '#src/utils/read-value';
-export { readValue } from '#src/utils/read-value';
-export { valueSuffixer } from '#src/utils/value-suffixer';
+export type { AsyncValueReader } from '#src/utils/readValue';
+export { readValue } from '#src/utils/readValue';
+export { valueSuffixer } from '#src/utils/valueSuffixer/index';

@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { readValue } from '#src/utils/read-value';
-import { valueSuffixer } from '#src/utils/value-suffixer';
+import { readValue } from '#src/utils/readValue';
+import { valueSuffixer } from '#src/utils/valueSuffixer/index';
 
 void test('readValue uses mocked imported suffixer', async (t) => {
     const appendMock = t.mock.method(
