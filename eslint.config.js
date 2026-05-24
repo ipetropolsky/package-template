@@ -2,6 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import js from '@eslint/js';
+import json from '@eslint/json';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
@@ -28,13 +29,26 @@ export default tseslint.config(
     {
         ignores,
     },
-    js.configs.recommended,
-    importPlugin.flatConfigs.recommended,
-    importPlugin.flatConfigs.typescript,
-    promisePlugin.configs['flat/recommended'],
+    {
+        ...js.configs.recommended,
+        files: ['**/*.{js,mjs,cjs,ts}'],
+    },
+    {
+        ...importPlugin.flatConfigs.recommended,
+        files: ['**/*.{js,mjs,cjs,ts}'],
+    },
+    {
+        ...importPlugin.flatConfigs.typescript,
+        files: ['**/*.ts'],
+    },
+    {
+        ...promisePlugin.configs['flat/recommended'],
+        files: ['**/*.{js,mjs,cjs,ts}'],
+    },
     {
         languageOptions,
         plugins: {
+            json,
             perfectionist,
             project: projectPlugin,
         },
@@ -51,6 +65,19 @@ export default tseslint.config(
     {
         files: ['**/*.{js,mjs,cjs,ts}'],
         rules: commonRules,
+    },
+    {
+        files: ['**/*.json'],
+        ignores: ['**/package-lock.json', '**/package.json'],
+        language: 'json/json',
+        rules: {
+            'json/no-duplicate-keys': 'error',
+            'json/no-empty-keys': 'error',
+            'json/no-unnormalized-keys': 'error',
+            'json/no-unsafe-values': 'error',
+            'json/sort-keys': ['error', 'asc', { natural: true }],
+            'json/top-level-interop': 'error',
+        },
     },
     {
         files: ['**/*.{js,mjs,cjs}'],

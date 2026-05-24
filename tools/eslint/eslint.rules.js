@@ -43,10 +43,6 @@ const projectRules = {
 };
 
 const perfectionistRules = {
-    'perfectionist/sort-array-includes': 'off',
-    'perfectionist/sort-classes': 'off',
-    'perfectionist/sort-decorators': 'off',
-    'perfectionist/sort-enums': 'off',
     'perfectionist/sort-exports': ['error', { order: 'asc', type: 'natural' }],
     'perfectionist/sort-heritage-clauses': ['error', { order: 'asc', type: 'natural' }],
     'perfectionist/sort-imports': [
@@ -89,17 +85,12 @@ const perfectionistRules = {
     ],
     'perfectionist/sort-interfaces': ['error', { order: 'asc', type: 'natural' }],
     'perfectionist/sort-intersection-types': ['error', { order: 'asc', type: 'natural' }],
-    'perfectionist/sort-jsx-props': 'off',
-    'perfectionist/sort-maps': 'off',
-    'perfectionist/sort-modules': 'off',
     'perfectionist/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
     'perfectionist/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
     'perfectionist/sort-object-types': ['error', { order: 'asc', type: 'natural' }],
     'perfectionist/sort-objects': ['error', { order: 'asc', type: 'natural' }],
     'perfectionist/sort-sets': ['error', { order: 'asc', type: 'natural' }],
-    'perfectionist/sort-switch-case': 'off',
     'perfectionist/sort-union-types': ['error', { order: 'asc', type: 'natural' }],
-    'perfectionist/sort-variable-declarations': 'off',
 };
 
 export const commonRules = {

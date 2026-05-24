@@ -11,21 +11,21 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js",
       "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.ts"
     },
     "./package.json": "./package.json"
   },
   "imports": {
     "#src/*": {
+      "default": "./dist/*.js",
       "development": "./src/*.ts",
-      "types": "./dist/*.d.ts",
-      "default": "./dist/*.js"
+      "types": "./dist/*.d.ts"
     },
     "#src/*.json": {
-      "development": "./src/*.json",
-      "default": "./dist/*.json"
+      "default": "./dist/*.json",
+      "development": "./src/*.json"
     },
     "#test/*": {
       "development": "./test/*.ts"
@@ -85,6 +85,7 @@
   "homepage": "https://github.com/ipetropolsky/package-template#readme",
   "devDependencies": {
     "@eslint/js": "9.39.4",
+    "@eslint/json": "0.13.2",
     "@types/node": "25.9.1",
     "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.8",
