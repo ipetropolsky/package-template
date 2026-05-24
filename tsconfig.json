@@ -1,29 +1,30 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "customConditions": ["development"],
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
     "lib": ["ESNext"],
     "module": "NodeNext",
-    "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "isolatedModules": true,
     "noEmit": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "useUnknownInCatchVariables": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "customConditions": ["development"],
-    "types": ["node"],
+    "noUncheckedIndexedAccess": true,
+    "outDir": "./dist",
     "paths": {
-      "#src/*": ["./src/*"],
+      "#src/*": ["./src/*.ts"],
+      "#src/*.json": ["./src/*.json"],
       "#test/*": ["./test/*"]
     },
+    "resolveJsonModule": true,
     "rootDir": ".",
-    "outDir": "./dist"
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ESNext",
+    "types": ["node"],
+    "useUnknownInCatchVariables": true,
+    "verbatimModuleSyntax": true
   },
   "include": ["src/**/*.ts", "test/**/*.ts", "tools/**/*.js"]
 }
