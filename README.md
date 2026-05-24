@@ -7,6 +7,7 @@ ESM-only шаблон npm-пакета на TypeScript с `tsc`, flat ESLint, Pr
 ```bash
 npm install
 npm run build
+npm run fix-branch
 npm run check-all
 npm run fix-all
 npm run test
@@ -16,6 +17,7 @@ npm run pack:check
 
 - `npm install` устанавливает зависимости и через `prepare` ставит `pre-commit` hook.
 - `npm run build` очищает `dist/` и собирает ESM + `.d.ts` через `tsc`.
+- `npm run fix-branch` запускает `lint-staged --diff=master --relative --no-hide-partially-staged` и используется как основной branch-check относительно эталонного `master`.
 - `npm run check-all` прогоняет ts:check, ESLint и Prettier в check-режиме.
 - `npm run fix-all` запускает автоисправления ESLint и запись через Prettier.
 - `npm run test` запускает `.ts`-тесты через встроенный `node:test` с `tsx`, без промежуточной сборки.
@@ -31,6 +33,10 @@ npm run pack:check
 - Исходники лежат в `src/`.
 - Тесты лежат в `test/`, работают с исходниками.
 - На публикацию уходит собранный код из `dist/`.
+
+## Branch flow
+
+`master` считается зелёной веткой. Для обычной работы по ветке основной командой является `npm run fix-branch`: она берёт diff относительно `master` и прогоняет только релевантные задачи из конфигурации `lint-staged`, включая `ts:check`, когда он нужен по изменённым файлам.
 
 ## Как запускаются тесты
 

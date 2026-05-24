@@ -49,6 +49,7 @@
     "format:check": "prettier --check --ignore-unknown .",
     "format:files": "prettier --write --ignore-unknown",
     "format:files:check": "prettier --check --ignore-unknown",
+    "fix-branch": "lint-staged --diff=master --relative --no-hide-partially-staged",
     "check-all": "npm run ts:check && npm run lint:check && npm run format:check",
     "fix-all": "npm run ts:check && npm run lint && npm run format",
     "pack:check": "npm pack --dry-run",

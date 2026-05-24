@@ -8,7 +8,7 @@
 
 ## Main checks
 
-- `npm run fix-all`
+- `npm run fix-branch`
 
 ## Final checks
 
@@ -24,3 +24,4 @@
 - JS utilities live in `tools/` and use ESM by default.
 - Internal imports use `#src/*` via `package.json#imports`.
 - Relative imports like `./foo` and `../bar` are forbidden.
+- `master` is treated as green, so branch work should normally use `npm run fix-branch`.
